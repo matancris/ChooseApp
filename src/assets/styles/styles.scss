@@ -1,0 +1,34 @@
+// Setup
+@import "./setup/variables";
+@import "./setup/functions";
+@import "./setup/mixins";
+@import "./setup/typography";
+
+// Basics
+@import "./basics/helpers";
+@import "./basics/base";
+@import "./basics/layout";
+@import "./basics/animations";
+
+// // Custom
+// @import "./custom/myInput";
+// @import "./custom/myTransition";
+// @import "./custom/myModal";
+@import "./custom/uiLine";
+
+// Components
+// @import "./componenets/productPreview";
+@import "./componenets/personPreview";
+// @import "./componenets/addGroupFilter";
+// @import "./componenets/loader";
+@import "./componenets/appHeader";
+// @import "./componenets/taskList";
+
+// Views
+// @import "./views/home";
+@import "./views/chooseApp";
+@import "./views/personDetails";
+// @import "./views/memberManager";
+// @import "./views/login";
+// @import "./views/dashboard";
+

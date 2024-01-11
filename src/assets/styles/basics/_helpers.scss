@@ -1,0 +1,116 @@
+.flex {
+    display: flex;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.space-evenely {
+        justify-content: space-evenly;
+    }
+
+    &.space-around {
+        justify-content: space-around;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.justify-align-center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+
+    & .flex-1 {
+        flex-grow: 1;
+    }
+
+    &.flex-wrap {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* list-helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* hide-helpers */
+
+.hidden {
+    display: none;
+}
+
+.active {
+    color: rgb(65, 65, 65);
+}
+
+.app-card {
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 16px;
+    padding: 1rem;
+}
+
+.screen {
+    position: fixed;
+    inset: 0;
+    top: $header-height;
+    background-color: rgba(76, 74, 74, 0.6);
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+
+    &.screen-open {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* size-helpers */
+
+.max-w-50 {
+    max-width: 50%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.m-5 {
+    margin: 5px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+
+@media (max-width: $mobile-breakpoint) {
+    .card {
+        width: 100%;
+    }
+}

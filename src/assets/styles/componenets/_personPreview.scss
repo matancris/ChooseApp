@@ -1,0 +1,20 @@
+.person-preview {
+    color: red;
+
+    min-height: 150px;
+
+    .app-avatar {
+        height: 100%;
+        flex-grow: 1;
+        
+        .material-symbols-outlined {
+            font-size: rem(48px);
+            font-variation-settings:
+                'FILL'0,
+                'wght'100,
+                'GRAD'0,
+                'opsz'24
+        }
+
+    }
+}

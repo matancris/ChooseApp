@@ -1,0 +1,8 @@
+.choose-app {
+    .person-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));;
+        gap: 0.5rem;
+        grid-template-rows: auto;
+    }
+}
