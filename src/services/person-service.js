@@ -1,10 +1,14 @@
-import { utilService } from './util-service';
+
 
 
 export const personService = {
     getPersons,
-    getById
+    getById,
+    getIdxById,
+    addPersonPref
 }
+
+export const WEEK_DAYS = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
 
 let persons = [
     {
@@ -16,7 +20,8 @@ let persons = [
             'לחמניה עם גבינת זיתים',
             'פיתה עם שוקולד',
             'לחמניה עם חביתה'
-        ]
+        ],
+        prefsByDays: [3, 1, 0, 1, 2, 4] // the index is the day and the value is the pref index
     },
     {
         id: 'C2',
@@ -27,7 +32,8 @@ let persons = [
             'לחמניה עם קוטג',
             'פיתה עם שוקולד',
             'לחמניה עם שוקולד'
-        ]
+        ],
+        prefsByDays: [3, 1, 0, 1, 2, 4] // the index is the day and the value is the pref index
     },
     {
         id: 'C3',
@@ -38,7 +44,8 @@ let persons = [
             'לחמניה עם שוקולד',
             'פיתה עם שוקולד',
             'לחמניה עם גגינה לבנה'
-        ]
+        ],
+        prefsByDays: [3, 1, 0, 1, 2, 4] // the index is the day and the value is the pref index
     },
 ]
 console.log('persons:', persons)
@@ -49,9 +56,20 @@ function getPersons() {
 }
 
 function getById(personId) {
-    console.log('getById ~ personId:', personId)
     const person = persons.find(person => person.id === personId)
+    return person;
+}
+
+function getIdxById(personId) {
+    const person = persons.findIndex(person => person.id === personId)
     console.log('getById ~ person:', person)
     return person;
+}
+
+function addPersonPref(personId, prefToAdd) {
+    const personToEditIdx = getIdxById(personId);
+    if (personToEditIdx) {
+        persons[personToEditIdx].preferences.push(prefToAdd)
+    }
 }
 
