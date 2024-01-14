@@ -19,10 +19,12 @@ export default function PersonDetails() {
 
     const loadPerson = () => {
         const currPerson = personService.getById(personId);
+        console.log('loadPerson ~ currPerson:', currPerson)
         setPerson({ ...currPerson })
     }
 
     const onAddPref = (personId, prefToAdd) => {
+        console.log('onAddPref ~ prefToAdd:', prefToAdd)
         personService.addPersonPref(personId, prefToAdd)
         loadPerson()
     }

@@ -6,6 +6,7 @@ import { Tooltip } from 'react-tooltip'
 export default function PersonEdit({ person, onAddPref }) {
 
     const [newPref, setNewPref] = useState('');
+    const [prefMoreMenuStatuses, setPrefMoreMenuStatuses] = useState([]);
 
     const handleInput = (ev) => {
         const { name, value } = ev.target
@@ -25,17 +26,35 @@ export default function PersonEdit({ person, onAddPref }) {
         })
     }
 
+    const onOpenPrefMoreMenu = (idx) => {
+        const prefMoreMenus = [...prefMoreMenuStatuses];
+        prefMoreMenus[idx] = !prefMoreMenus[idx]
+
+        setPrefMoreMenuStatuses([...prefMoreMenus])
+    }
+
+
     return (
         <section className="person-edit">
             <ul className="prefs-container clean-list flex column">
-                {person.preferences?.map(pref => {
+                {person.preferences?.map((pref, idx) => {
                     return (
                         <div className="pref-container flex align-center space-between">
-                            <li className="pref-item" key={pref}>{pref}</li>
-                            <Tooltip id="my-tooltip" />
-                            <span data-tooltip-id="my-tooltip" data-tooltip-content="Hello world!" class="material-symbols-outlined more-icon">
+                            <li className="pref-item" key={idx}>{pref}</li>
+                            <span
+                                class="material-symbols-outlined more-icon"
+                                onClick={() => onOpenPrefMoreMenu(idx)}>
                                 more_vert
                             </span>
+                            {prefMoreMenuStatuses[idx] &&
+                                <div className="edit-menu-container">
+                                    <div className="edit-tag-wrapper">
+                                        <span>ערוך</span>
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </div>
+                                </div>}
                         </div>
                     )
                 })}

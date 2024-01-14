@@ -30,10 +30,25 @@
             gap: 1rem;
             padding-bottom: rem(4px); // to prevent the scrollbar to show before adding prefs
 
-            
-        li {
-            margin-bottom: unset;
-        }
+
+            li {
+                margin-bottom: unset;
+            }
+
+            .pref-container {
+                position: relative;
+
+                .edit-menu-container {
+                    position: absolute;
+                    bottom: -50px;
+                    width: 150px;
+                    height: 50px;
+                    background-color: #fff;
+                    z-index: 1;
+                    border: 1px solid #ddd;
+                    border-radius: 16px;
+                }
+            }
         }
 
         .add-input-wrapper {

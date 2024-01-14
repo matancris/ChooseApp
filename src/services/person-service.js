@@ -67,8 +67,10 @@ function getIdxById(personId) {
 }
 
 function addPersonPref(personId, prefToAdd) {
+    console.log('addPersonPref ~ prefToAdd:', prefToAdd)
     const personToEditIdx = getIdxById(personId);
-    if (personToEditIdx) {
+    console.log('addPersonPref ~ personToEditIdx:', personToEditIdx)
+    if (personToEditIdx !== -1) {
         persons[personToEditIdx].preferences.push(prefToAdd)
     }
 }
