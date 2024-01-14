@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import './assets/styles/styles.scss';
+import 'react-tooltip/dist/react-tooltip.css'
 import PersonDetails from './pages/personDetails.jsx';
 import ChooseApp from './pages/ChooseApp.jsx';
 
