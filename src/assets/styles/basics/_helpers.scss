@@ -42,6 +42,16 @@
         flex-wrap: wrap;
     }
 
+    &.gap-4 {
+        gap: rem(4px);
+    }
+    &.gap-8 {
+        gap: rem(8px);
+    }
+    &.gap-16 {
+        gap: rem(16px);
+    }
+
 }
 
 /* list-helpers */

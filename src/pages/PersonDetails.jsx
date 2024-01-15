@@ -19,38 +19,44 @@ export default function PersonDetails() {
 
     const loadPerson = () => {
         const currPerson = personService.getById(personId);
-        console.log('loadPerson ~ currPerson:', currPerson)
         setPerson({ ...currPerson })
     }
 
     const onAddPref = (personId, prefToAdd) => {
-        console.log('onAddPref ~ prefToAdd:', prefToAdd)
         personService.addPersonPref(personId, prefToAdd)
+        loadPerson()
+    }
+
+    const removePref = (personId, prefToRemoveIdx) => {
+        personService.removePersonPref(personId, prefToRemoveIdx)
+        loadPerson()
+    }
+
+    const updatePrefs = (personId, updatedPrefs) => {
+        personService.updatePrefs(personId, updatedPrefs)
         loadPerson()
     }
 
 
     return (
-        <section className="person-details">
-            <div className="person-details-header flex justify-align-center">
+        <section className="person-details main-container">
+            <div className="person-details-header flex justify-align-center full">
                 <h1>{person.name}</h1>
             </div>
             <div className="personal-details-main flex">
-
-
                 <div className="side-nav flex column">
                     <ul className="prefs-container clean-list flex column">
-                        {person.preferences?.map(pref => <li key={pref}>{pref}</li>)}
+                        {person.preferences?.map((pref, idx) => <li key={idx}>{pref}</li>)}
                     </ul>
                     <button onClick={() => setIsEditDialogOpen(true)}>ערוך רשימה</button>
                 </div>
                 <Tabs className={'react-tabs flex-1'}>
                     <TabList className={'react-tabs__tab-list flex'}>
-                        {WEEK_DAYS.map(day => <Tab className={'react-tabs__tab flex-1'}>{day}</Tab>)}
+                        {WEEK_DAYS.map((day, idx) => <Tab className={'react-tabs__tab flex-1'} key={idx}>{day}</Tab>)}
                     </TabList>
 
                     {WEEK_DAYS.map((_, dayIdx) => (
-                        <TabPanel>
+                        <TabPanel key={dayIdx}>
                             <h1 className="selection-title flex justify-align-center">
                                 {person.preferences?.[person.prefsByDays?.[dayIdx]]}
                             </h1>
@@ -58,7 +64,11 @@ export default function PersonDetails() {
                 </Tabs>
             </div>
             <AppDialog isDialogOpen={isEditDialogOpen} onCloseDialog={() => setIsEditDialogOpen(false)}>
-                <PersonEdit person={person} onAddPref={onAddPref} />
+                <PersonEdit
+                    person={person}
+                    nAddPref={onAddPref}
+                    removePref={removePref}
+                    updatePrefs={updatePrefs} />
             </AppDialog>
 
         </section>

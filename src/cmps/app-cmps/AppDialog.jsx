@@ -16,7 +16,7 @@ export default function AppDialog(props) {
     <>
       <div className={`screen ${isDialogOpen ? 'screen-open' : ''}`}>
         <section className="app-dialog flex column">
-          <span class="material-symbols-outlined align-self-end cursor-pointer" onClick={onCloseDialog}>
+          <span className="material-symbols-outlined align-self-end cursor-pointer" onClick={onCloseDialog}>
             close
           </span>
           {props.children}

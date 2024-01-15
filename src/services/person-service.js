@@ -5,7 +5,9 @@ export const personService = {
     getPersons,
     getById,
     getIdxById,
-    addPersonPref
+    addPersonPref,
+    removePersonPref,
+    updatePrefs
 }
 
 export const WEEK_DAYS = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
@@ -72,6 +74,19 @@ function addPersonPref(personId, prefToAdd) {
     console.log('addPersonPref ~ personToEditIdx:', personToEditIdx)
     if (personToEditIdx !== -1) {
         persons[personToEditIdx].preferences.push(prefToAdd)
+    }
+}
+function removePersonPref(personId, prefToRemoveIdx) {
+    const personToEditIdx = getIdxById(personId);
+    if (personToEditIdx !== -1) {
+        persons[personToEditIdx].preferences.splice(prefToRemoveIdx, 1)
+    }
+}
+
+function updatePrefs(personId, updatedPrefs) {
+    const personToEditIdx = getIdxById(personId);
+    if (personToEditIdx !== -1) {
+        persons[personToEditIdx].preferences = [...updatedPrefs]
     }
 }
 
