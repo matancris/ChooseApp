@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 
-
-
 export default function PersonEdit({ person, onAddPref, removePref, updatePrefs }) {
 
     const [editPrefsForm, setEditPrefsForm] = useState({ addPref: '' });
@@ -40,6 +38,8 @@ export default function PersonEdit({ person, onAddPref, removePref, updatePrefs 
     }
 
     const onAddNewPref = () => {
+        if (!editPrefsForm.addPref) return;
+
         onAddPref(person.id, editPrefsForm.addPref)
         setEditPrefsForm({
             ...editPrefsForm,
@@ -49,6 +49,8 @@ export default function PersonEdit({ person, onAddPref, removePref, updatePrefs 
 
     const editPref = ({ target }, idx) => {
         const { value } = target
+
+
         const updatedPersonPrefs = [...person.preferences];
         updatedPersonPrefs[idx] = value
 
@@ -56,6 +58,8 @@ export default function PersonEdit({ person, onAddPref, removePref, updatePrefs 
     }
 
     const onUpdatePrefs = (idx) => {
+        if (!updatedPersonPrefs[idx]) return;
+
         updatePrefs(person.id, updatedPersonPrefs)
 
         togglePrefEditInputs(idx)
@@ -86,7 +90,7 @@ export default function PersonEdit({ person, onAddPref, removePref, updatePrefs 
 
     return (
         <section className="person-edit">
-            <ul className="prefs-container clean-list flex column">
+            <ul className="prefs-container prefs-edit-mode clean-list flex column">
                 {person.preferences?.map((pref, idx) => {
                     return (
                         <div className="pref-container flex align-center space-between" key={idx}>

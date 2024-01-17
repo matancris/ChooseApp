@@ -6,4 +6,11 @@
     padding: 1rem;
     max-height: 90vh;
     border-radius: 16px;
+
+    .close-dialog-btn {
+        font-size: 1rem;
+        position: relative;
+        left: -8px;
+        top: -8px;
+    }
 }

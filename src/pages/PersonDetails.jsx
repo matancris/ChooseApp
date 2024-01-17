@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { WEEK_DAYS, personService } from '../services/person-service';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+// import { MobileContext } from '../App'
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -8,11 +9,14 @@ import AppDialog from '../cmps/app-cmps/AppDialog';
 import PersonEdit from '../cmps/PersonEdit';
 
 export default function PersonDetails() {
+    // const isMobile = useContext(MobileContext);
+    // console.log('PersonDetails ~ isMobile:', isMobile)
+    
     const [person, setPerson] = useState({});
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
     const { personId } = useParams();
-
-
+    
+    
     useEffect(() => {
         loadPerson()
     }, [])
@@ -42,9 +46,16 @@ export default function PersonDetails() {
         <section className="person-details main-container">
             <div className="person-details-header flex justify-align-center full">
                 <h1>{person.name}</h1>
+                <button className="back-btn flex justify-align-center">
+                    <Link to="/person">
+                        <span className="material-symbols-outlined">
+                            arrow_left_alt
+                        </span>
+                    </Link>
+                </button>
             </div>
-            <div className="personal-details-main flex">
-                <div className="side-nav flex column">
+            <div className={`personal-details-main flex ${isMobile ? 'full' : ''}`}>
+                <div className="side-nav flex column space-between">
                     <ul className="prefs-container clean-list flex column">
                         {person.preferences?.map((pref, idx) => <li key={idx}>{pref}</li>)}
                     </ul>
@@ -66,7 +77,7 @@ export default function PersonDetails() {
             <AppDialog isDialogOpen={isEditDialogOpen} onCloseDialog={() => setIsEditDialogOpen(false)}>
                 <PersonEdit
                     person={person}
-                    nAddPref={onAddPref}
+                    onAddPref={onAddPref}
                     removePref={removePref}
                     updatePrefs={updatePrefs} />
             </AppDialog>

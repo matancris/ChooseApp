@@ -7,16 +7,21 @@ export default function AppDialog(props) {
     setIsDialogOpen(props.isDialogOpen)
   }, [props.isDialogOpen])
 
-  const onCloseDialog = () => {
+  const onCloseDialog = (ev) => {
+    const isCloseDialogClicked =
+      ev.target.classList?.contains('screen-open') ||
+      ev.target.classList?.contains('close-dialog-btn')
+    if (!isCloseDialogClicked) return;
+
     props.onCloseDialog()
   }
 
 
   return (
     <>
-      <div className={`screen ${isDialogOpen ? 'screen-open' : ''}`}>
+      <div className={`screen ${isDialogOpen ? 'screen-open' : ''}`} onClick={onCloseDialog}>
         <section className="app-dialog flex column">
-          <span className="material-symbols-outlined align-self-end cursor-pointer" onClick={onCloseDialog}>
+          <span className="close-dialog-btn material-symbols-outlined align-self-end cursor-pointer" onClick={onCloseDialog}>
             close
           </span>
           {props.children}
