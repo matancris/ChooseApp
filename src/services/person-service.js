@@ -7,7 +7,8 @@ export const personService = {
     getIdxById,
     addPersonPref,
     removePersonPref,
-    updatePrefs
+    updatePrefs,
+    updatePrefsByDays
 }
 
 export const WEEK_DAYS = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
@@ -87,6 +88,13 @@ function updatePrefs(personId, updatedPrefs) {
     const personToEditIdx = getIdxById(personId);
     if (personToEditIdx !== -1) {
         persons[personToEditIdx].preferences = [...updatedPrefs]
+    }
+}
+
+function updatePrefsByDays(personId, updatedPrefsByDays) {
+    const personToEditIdx = getIdxById(personId);
+    if (personToEditIdx !== -1) {
+        persons[personToEditIdx].prefsByDays = [...updatedPrefsByDays]
     }
 }
 

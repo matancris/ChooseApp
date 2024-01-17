@@ -16,7 +16,7 @@
     }
 
     .side-nav {
-        max-height: 90vh;
+        max-height: 91vh;
         height: 100%;
         padding: 1rem;
         border-inline-end: 1px solid #ddd;
@@ -90,6 +90,9 @@
     }
 
     .react-tabs {
+        padding-bottom: 1rem;
+        padding-inline-start: 1rem;
+
         [class*="__tab-panel"] {
 
             .selection-title {
