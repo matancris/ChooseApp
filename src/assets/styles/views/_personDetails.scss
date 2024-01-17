@@ -100,6 +100,18 @@
             }
         }
     }
+    
+    .choose-dialog {
+        min-height: 10rem;
+        min-width: rem(350px);
+
+        &.chosen {
+            background-image: url(../../img/confettigif.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
 
     ::-webkit-scrollbar {
         width: 10px;
