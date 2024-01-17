@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
 import { WEEK_DAYS, personService } from '../services/person-service';
+import { utilService } from '../services/util-service';
 import { Link, useParams } from 'react-router-dom';
 // import { MobileContext } from '../App'
-
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import AppDialog from '../cmps/app-cmps/AppDialog';
@@ -70,7 +70,7 @@ export default function PersonDetails() {
                     </ul>
                     <button onClick={() => setIsEditDialogOpen(true)}>ערוך רשימה</button>
                 </div>
-                <Tabs className={'react-tabs flex-1 flex column space-between'}>
+                <Tabs className={'react-tabs flex-1 flex column space-between'} defaultIndex={utilService.getCurrDay()}>
                     <TabList className={'react-tabs__tab-list flex'}>
                         {WEEK_DAYS.map((day, idx) => <Tab className={'react-tabs__tab flex-1'} key={idx}>{day}</Tab>)}
                     </TabList>

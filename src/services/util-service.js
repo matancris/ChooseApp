@@ -1,6 +1,7 @@
 export const utilService = {
     makeId,
-    getRandomInt
+    getRandomInt,
+    getCurrDay
 }
 
 
@@ -19,5 +20,10 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+function getCurrDay() {
+    const date = new Date()
+    return date.getDay()
 }
 
