@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import './assets/styles/styles.scss';
-import PersonDetails from './pages/personDetails.jsx';
+import PersonDetails from './pages/PersonDetails.jsx';
 import ChooseApp from './pages/ChooseApp.jsx';
 
 const router = createBrowserRouter([
