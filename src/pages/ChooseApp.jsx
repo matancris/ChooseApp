@@ -8,6 +8,7 @@ export default function ChooseApp() {
 
     useEffect(() => {
         const persons = personService.getPersons()
+        console.log('useEffect ~ persons:', persons)
         setPersons([...persons])
     }, [])
 
