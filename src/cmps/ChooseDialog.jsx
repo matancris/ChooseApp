@@ -41,11 +41,11 @@ export default function ChooseDialog({ person }) {
   }
 
   return (
-    <section className={`choose-dialog flex justify-align-center column ${isIntervalFinished ? 'chosen space-between': ''}`}>
+    <section className={`choose-dialog flex justify-align-center column ${isIntervalFinished ? 'chosen': ''}`}>
       <h1>
         {currPref}
       </h1>
-      {isIntervalFinished && <button onClick={() => setIsIntervalFinished(false)}>נסיון אחרון!</button>}
+      {isIntervalFinished && <button className="last-chance-btn" onClick={() => setIsIntervalFinished(false)}>נסיון אחרון!</button>}
     </section>
   )
 }

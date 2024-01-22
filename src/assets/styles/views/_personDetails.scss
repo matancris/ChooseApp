@@ -105,8 +105,13 @@
         min-height: 10rem;
         min-width: rem(350px);
 
+        .last-chance-btn {
+            position: absolute;
+            bottom: 1rem;
+        }
+
         &.chosen {
-            background-image: url(../../img/confettigif.gif);
+            background-image: url('https://static.wixstatic.com/media/9a4b1b_0a693019c4854d88b0004e93f4c88533~mv2.gif');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
