@@ -25,6 +25,8 @@ function App() {
 
   return (
     <section className="App">
+      <Link to='/person' >person list</Link>
+
       <MobileContext.Provider value={isMobile}>
        <Outlet />
 
