@@ -26,10 +26,11 @@ function App() {
 
   return (
     <section className="App">
-
+      <h1>Hiii</h1>
+      <Link to='/person'>persons</Link>
       <MobileContext.Provider value={isMobile}>
         <Routes>
-          <Route path='*' element={<Navigate to="/person" />} />
+          {/* <Route path='*' element={<Navigate to="/person" />} /> */}
           <Route path='/person' element={<ChooseApp />} />
           <Route path='/person/:id' element={<PersonDetails />} />
         </Routes>
