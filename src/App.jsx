@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, redirect } from 'react-router-dom'
 import { useEffect, useState, useContext, createContext } from 'react'
 
 import ChooseApp from './pages/ChooseApp'
@@ -17,6 +17,7 @@ function App() {
   }
   
   useEffect(() => {
+    redirect('/person');
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <section className="App">
-      <Link to='/person' >person list</Link>
+      <Link to='/person'>person list</Link>
 
       <MobileContext.Provider value={isMobile}>
        <Outlet />
