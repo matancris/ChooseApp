@@ -31,7 +31,6 @@ function App() {
 
       <MobileContext.Provider value={isMobile}>
         <Outlet />
-
       </MobileContext.Provider>
       {/* <ChooseApp></ChooseApp> */}
     </section>
