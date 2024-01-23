@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { useEffect, useState, useContext, createContext } from 'react'
 
 import ChooseApp from './pages/ChooseApp'
