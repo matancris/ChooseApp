@@ -7,6 +7,7 @@ export default function ChooseApp() {
     const [persons, setPersons] = useState([])
 
     useEffect(() => {
+        console.log('hiiiiiiiiii')
         const persons = personService.getPersons()
         console.log('useEffect ~ persons:', persons)
         setPersons([...persons])
