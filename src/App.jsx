@@ -2,6 +2,7 @@ import { Link, Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import { useEffect, useState, useContext, createContext } from 'react'
 
 import ChooseApp from './pages/ChooseApp'
+import PersonDetails from './pages/PersonDetails';
 
 export const MobileContext = createContext(false)
 
@@ -25,12 +26,13 @@ function App() {
 
   return (
     <section className="App">
-      <Routes>
-        <Route path='/' element={<Navigate to="/person" />} />
-      </Routes>
 
       <MobileContext.Provider value={isMobile}>
-        <Outlet />
+        <Routes>
+          <Route path='*' element={<Navigate to="/person" />} />
+          <Route path='/person' element={<ChooseApp />} />
+          <Route path='/person/:id' element={<PersonDetails />} />
+        </Routes>
       </MobileContext.Provider>
       {/* <ChooseApp></ChooseApp> */}
     </section>
