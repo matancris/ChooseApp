@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType:'prompt',
-  includeAssests:['favicon.ico', "apple-touch-icon.png", "masked-icon.svg"],
+  includeAssets:['favicon.ico', "apple-touch-icon.png", "masked-icon.svg"],
   manifest:{
     name:"choose-app",
     short_name:"chooser",
