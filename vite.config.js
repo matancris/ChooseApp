@@ -4,31 +4,31 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType:'prompt',
-  includeAssests:['favicon.ico', "apple-touc-icon.png", "masked-icon.svg"],
+  includeAssests:['favicon.ico', "apple-touch-icon.png", "masked-icon.svg"],
   manifest:{
-    name:"React-vite-app",
-    short_name:"react-vite-app",
-    description:"I am a simple vite app",
+    name:"choose-app",
+    short_name:"chooser",
+    description:"",
     icons:[{
-      src: '/public/dilemma.png',
+      src: '/public/favicon_io/android-chrome-192x192.png',
       sizes:'192x192',
       type:'image/png',
       purpose:'favicon'
     },
     {
-      src:'/public/dilemma.png',
+      src:'/public/favicon_io/android-chrome-512x512.png',
       sizes:'512x512',
       type:'image/png',
       purpose:'favicon'
     },
     {
-      src: '/apple-touch-icon.png',
+      src: '/public/favicon_io/apple-touch-icon.png',
       sizes:'180x180',
       type:'image/png',
       purpose:'apple touch icon',
     },
     {
-      src: '/public/dilemma.png',
+      src: '/public/favicon_io/android-chrome-512x512.png',
       sizes:'512x512',
       type:'image/png',
       purpose:'any maskable',
